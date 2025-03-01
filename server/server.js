@@ -49,11 +49,6 @@ async function connectDB() {
     }
 }
 
-// Start the server only if not in a serverless environment
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(process.env.PORT || 5000, () => {
-        console.log('Server is running on port', process.env.PORT || 5000);
-    });
-}
+connectDB(); // Connect to MongoDB
 
 module.exports = app; // Export app for Vercel deployment
